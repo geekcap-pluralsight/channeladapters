@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Widgets</title>
+    <link href="../static/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <table class="table">
+            <h2>Widgets</h2>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="widget : ${widgets}">
+                <td th:text="${widget.id}">Widget ID</td>
+                <td th:text="${widget.name}">Widget Name</td>
+                <td th:text="${widget.description}">Widget Description</td>
+                <td><a class="btn btn-default" href="#" th:href="${'/widget/' + widget.id}">View</a> </td>
+                <td><a class="btn btn-default" href="#" th:href="${'/widget/edit/' + widget.id}">Edit</a> </td>
+                <td><a class="btn btn-default" href="#" th:href="${'/widget/delete/' + widget.id}">Delete</a> </td>
+            </tr>
+        </table>
+
+        <a th:href="${'/widget/new'}" class="btn btn-default">New</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="../static/js/bootstrap.min.js" th:src="@{js/bootstrap.min.js}"></script>
+
+</body>
+</html>
